@@ -14,7 +14,7 @@ private:
 	bool is_paused = false;
 	Level level;
 	sf::View view;
-	// Player player;
+	Player player;
 	
 	//- Music & sound
 	sf::Music music;

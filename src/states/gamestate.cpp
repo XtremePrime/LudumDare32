@@ -16,8 +16,10 @@ void GameState::init()
 	music.setLoop(true);
 	// music.play();
 
-	view.setCenter(sf::Vector2f(128, 128));
-	view.setSize(sf::Vector2f(256, 256));
+	view.setCenter(sf::Vector2f(128-32, 128-32));
+	view.setSize(sf::Vector2f(256-64, 256-64));
+
+	player.init(sf::Vector2f(3,3), level);
 }
 
 void GameState::cleanup()
@@ -30,6 +32,7 @@ void GameState::handle_events(Game* game, sf::Event event)
 	//- Game controls
 	if(!is_paused)
 	{
+		player.handle_events(event);
 		if(event.type == sf::Event::KeyPressed)
 		{
 			if(event.key.code == sf::Keyboard::W)
@@ -59,6 +62,7 @@ void GameState::update(Game* game, sf::Time deltaTime)
 {
 	if(!is_paused)
 	{
+		player.update(deltaTime);
 		game->get_window()->setView(view);
 	}
 }
@@ -68,6 +72,7 @@ void GameState::render(Game* game)
 	if(!is_paused)
 	{
 		level.render(game->get_window());
+		player.render(game->get_window());
 	}
 }
 

@@ -18,7 +18,9 @@ public:
     // Player(int,int,int);
     // ~Player();
 
-    void init();
+    void init(sf::Vector2f, Level);
+
+    void move();
 
     void handle_events(sf::Event event);
     void update(sf::Time deltaTime);
