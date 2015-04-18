@@ -11,7 +11,7 @@ enum class TileType {
 class Tile
 {
 private:
-	int id;
+	
 	bool walkable;
 
 	sf::Texture txr;
@@ -19,6 +19,7 @@ private:
 
 	void init();
 public:
+	int id;
 	Tile();
 	Tile(int id);
 	TileType tileType;

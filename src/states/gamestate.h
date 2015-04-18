@@ -3,13 +3,17 @@
 
 #include "state.h"
 #include "../level.h"
+#include <vector>
+#include <SFML/Graphics.hpp>
 
 class GameState : public State
 {
 private:
 	bool is_paused = false;
-	// Level level;
-	Tile *tile;
+	Level level;
+	std::vector<std::vector<int>> map1;
+	// int **map;
+	// std::vector<Tile*> tiles;
 protected:
 	static GameState* _instance;
 	GameState(){}
