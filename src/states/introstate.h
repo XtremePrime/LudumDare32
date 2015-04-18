@@ -1,28 +1,21 @@
-#ifndef GAMESTATE_H
-#define GAMESTATE_H
+#ifndef INTROSTATE_H
+#define INTROSTATE_H
 
 #include "state.h"
 #include "../level.h"
 #include <vector>
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 
-class GameState : public State
+class IntroState : public State
 {
 private:
 	bool is_paused = false;
-	Level level;
-	std::vector<std::vector<int>> map1;
-	sf::View view;
-	
-	//- Music & sound
-	sf::Music music;
 protected:
-	static GameState* _instance;
-	GameState(){}
+	static IntroState* _instance;
+	IntroState(){}
 public:
-	static GameState* instance();
-    ~GameState(){}
+	static IntroState* instance();
+    ~IntroState(){}
 	void init();
 	void cleanup();
 
@@ -34,4 +27,4 @@ public:
  	void resume();
 };
 
-#endif // GAMESTATE_H
+#endif // INTROSTATE_H

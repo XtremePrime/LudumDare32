@@ -2,6 +2,7 @@
 
 typedef std::vector<std::vector<int>> vector2di;
 
+//- Load map from files. Matrix based
 void Level::load_from_file(std::string filename)
 {
 	std::ifstream file;
@@ -27,6 +28,7 @@ void Level::load_from_file(std::string filename)
 	convert();
 }
 
+//- Convert matrix into Tile* vector for use.
 void Level::convert()
 {
 	int i = 0, k = 0;
@@ -52,6 +54,7 @@ void Level::render(sf::RenderWindow* window)
 			tiles[i][k]->render(window);
 }
 
+//- Debugging purposes.
 void Level::print_map(std::vector<std::vector<int>> map)
 {
 	for(std::vector<std::vector<int>>::iterator it = map.begin(); it != map.end(); ++it)

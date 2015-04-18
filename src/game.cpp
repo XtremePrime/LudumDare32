@@ -6,6 +6,7 @@ void Game::init()
 {
 	this->window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "Untitled Game", sf::Style::Titlebar | sf::Style::Close);
 	this->window.setVerticalSyncEnabled(true);
+	this->window.setKeyRepeatEnabled(false);
 }
 
 void Game::handle_events(sf::Event ev)
@@ -19,6 +20,14 @@ void Game::handle_events(sf::Event ev)
 			{
 				window.close();
 				quit();
+			}break;
+			case sf::Event::KeyPressed:
+			{
+				if(ev.key.code == sf::Keyboard::Escape)
+				{
+					window.close();
+					quit();
+				}
 			}break;
 		}
 	}
