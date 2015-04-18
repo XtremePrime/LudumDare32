@@ -12,7 +12,6 @@ class GameState : public State
 private:
 	bool is_paused = false;
 	Level level;
-	std::vector<std::vector<int>> map1;
 	sf::View view;
 	
 	//- Music & sound

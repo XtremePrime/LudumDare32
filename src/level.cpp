@@ -1,4 +1,5 @@
 #include "level.h"
+#include <cstdlib>
 
 typedef std::vector<std::vector<int>> vector2di;
 
@@ -11,13 +12,15 @@ void Level::load_from_file(std::string filename)
 	file >> rows >> cols;
 	std::cout << rows << " / " << cols << "\n";
 
-	for(int i = 0; i < cols; ++i)
+	for(int i = 0; i < rows; ++i)
 	{
 		std::vector<int> row;
-		for(int k = 0; k < rows; ++k)
+		for(int k = 0; k < cols; ++k)
 		{
 			int x;
 			file >> x;
+			std::cout << "x: " << x << "\n";
+			// system("PAUSE");
 			row.push_back(x); 
 		}
 		this->map.push_back(row);
@@ -32,13 +35,13 @@ void Level::load_from_file(std::string filename)
 void Level::convert()
 {
 	int i = 0, k = 0;
-	for(int i = 0; i < cols; ++i)
+	for(int i = 0; i < rows; ++i)
 	{
 		std::vector<Tile*> row;
-		for(int k = 0; k < rows; ++k)
+		for(int k = 0; k < cols; ++k)
 		{
 			row.push_back(new Tile(map[i][k]));
-			row.back()->get_sprite()->setPosition(sf::Vector2f(i*32, k*32));
+			row.back()->get_sprite()->setPosition(sf::Vector2f(k*32, i*32));
 			std::cout << "Info: " << map[i][k] << " | " << i << " | " << k << "\n";
 		}
 		tiles.push_back(row);
@@ -49,8 +52,8 @@ void Level::render(sf::RenderWindow* window)
 {
 	// for(std::vector<std::vector<Tile*>>::iterator it = tiles.begin(); it != tiles.end(); ++it)
 		// for(std::vector<Tile*>::iterator jt = it->begin(); jt != it->end(); ++jt)
-	for(int i = 0; i < cols; ++i)
-		for(int k = 0; k < rows; ++k)
+	for(int i = 0; i < rows; ++i)
+		for(int k = 0; k < cols; ++k)
 			tiles[i][k]->render(window);
 }
 

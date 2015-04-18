@@ -27,12 +27,13 @@ void GameState::cleanup()
 
 void GameState::handle_events(Game* game, sf::Event event)
 {
+	//- Game controls
 	if(!is_paused)
 	{
 		if(event.type == sf::Event::KeyPressed)
 		{
 			if(event.key.code == sf::Keyboard::W)
-				view.move(0, -32);												// LEL M8 YOU WILL KNOW NOTHING
+				view.move(0, -32);
 			else if(event.key.code == sf::Keyboard::S)
 				view.move(0, 32);
 			
@@ -43,13 +44,22 @@ void GameState::handle_events(Game* game, sf::Event event)
 				view.move(-32, 0);
 		}
 	}
+	//- Controls in paused state
+	if(event.type == sf::Event::KeyPressed)
+	{
+		if(event.key.code == sf::Keyboard::P)
+		{
+			is_paused = !is_paused;
+			std::cout << "Paused state: " << is_paused << "\n";
+		}
+	}
 }
 
 void GameState::update(Game* game, sf::Time deltaTime)
 {
 	if(!is_paused)
 	{
-		game->get_window()->setView(view);									// DAT VIEW .. GOTTA MAKE A SELFIE !!! 
+		game->get_window()->setView(view);
 	}
 }
 
@@ -64,8 +74,8 @@ void GameState::render(Game* game)
 void GameState::pause()
 {
 	is_paused = true;
-}															// WILL THERE BE AN IF HERE? LIKE IF(DEM_PAUSE == TRUE && SHIT SPACE KEY CODE)
-															//							 DEM PAUSE = FALSE;
+}
+
 void GameState::resume()
 {
 	is_paused = false;
