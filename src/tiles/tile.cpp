@@ -31,7 +31,10 @@ void Tile::init()
 		break;
 		case 1:
 		{
-
+			tileType = TileType::WATER;
+			walkable = false;
+			txr.loadFromFile("res/Tiles/water1_1.png");
+			spr.setTexture(txr);
 		}
 		break;
 	}

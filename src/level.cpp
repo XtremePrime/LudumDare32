@@ -1,4 +1,5 @@
 #include "level.h"
+#include <iostream>
 
 void Level::init(int map[][SIZE])
 {
@@ -12,6 +13,8 @@ void Level::init(int map[][SIZE])
 	}	
 	// this->x = xx;
 	// this->y = yy;
+	convert();
+	std::cout << "reached!";
 }
 
 

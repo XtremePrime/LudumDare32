@@ -8,7 +8,8 @@ class GameState : public State
 {
 private:
 	bool is_paused = false;
-	Level level;
+	// Level level;
+	Tile *tile;
 protected:
 	static GameState* _instance;
 	GameState(){}
