@@ -1,13 +1,38 @@
 #include "level.h"
 
-Level::Level(vector2di map, int xx, int yy)
+void Level::init(int map[][SIZE])
 {
-	this->map = map;
-	this->x = xx;
-	this->y = yy;
+	// this->map = map;
+	for(int i = 0; i < SIZE; ++i)
+	{
+		for(int k = 0; k < SIZE; ++i)
+		{
+			this->map[i][k] = map[i][k];
+		}
+	}	
+	// this->x = xx;
+	// this->y = yy;
 }
 
-void Level::convert(vector2di map)
-{
 
+void Level::convert()
+{
+	for(int i = 0; i < SIZE; ++i)
+	{
+		for(int k = 0; k < SIZE; ++k)
+		{
+			tilemap[i][k] = new Tile(map[i][k]);
+		}
+	}
+}
+
+void Level::render(sf::RenderWindow* window)
+{
+	for(int i = 0; i < SIZE; ++i)
+	{
+		for(int k = 0; k < SIZE; ++k)
+		{
+			tilemap[i][k]->render(window);
+		}
+	}
 }

@@ -48,10 +48,17 @@
 		</Linker>
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/game.h" />
+		<Unit filename="src/level.cpp" />
+		<Unit filename="src/level.h" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/states/gamestate.cpp" />
 		<Unit filename="src/states/gamestate.h" />
 		<Unit filename="src/states/state.h" />
+		<Unit filename="src/texturemanager.cpp" />
+		<Unit filename="src/texturemanager.h" />
+		<Unit filename="src/tiles/groundtile.h" />
+		<Unit filename="src/tiles/tile.cpp" />
+		<Unit filename="src/tiles/tile.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -9,14 +9,15 @@ class Level
 private:
 	typedef std::vector<std::vector<int>> vector2di;
 	int x, y;
-	vector2di map;
+	static const int SIZE = 64;
+	int map[SIZE][SIZE];
+	Tile* tilemap[SIZE][SIZE];
 
+	
 	void convert();
 public:
-
-	static Tile
-
-	Level(vector2di map, int xx, int yy);
+	void init(int map[][SIZE]);
+	void render(sf::RenderWindow*);
 };
 
 #endif // LEVEL_H
