@@ -32,7 +32,7 @@ void GameState::handle_events(Game* game, sf::Event event)
 		if(event.type == sf::Event::KeyPressed)
 		{
 			if(event.key.code == sf::Keyboard::W)
-				view.move(0, -32);
+				view.move(0, -32);												// LEL M8 YOU WILL KNOW NOTHING
 			else if(event.key.code == sf::Keyboard::S)
 				view.move(0, 32);
 			
@@ -49,7 +49,7 @@ void GameState::update(Game* game, sf::Time deltaTime)
 {
 	if(!is_paused)
 	{
-		game->get_window()->setView(view);
+		game->get_window()->setView(view);									// DAT VIEW .. GOTTA MAKE A SELFIE !!! 
 	}
 }
 
@@ -64,8 +64,8 @@ void GameState::render(Game* game)
 void GameState::pause()
 {
 	is_paused = true;
-}
-
+}															// WILL THERE BE AN IF HERE? LIKE IF(DEM_PAUSE == TRUE && SHIT SPACE KEY CODE)
+															//							 DEM PAUSE = FALSE;
 void GameState::resume()
 {
 	is_paused = false;

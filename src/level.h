@@ -16,7 +16,7 @@ class Level
 private:
 	tilevector tiles;
 	vector2di map;
-	int size;
+	int rows, cols;
 
 	void print_map(vector2di);
 	void convert();
