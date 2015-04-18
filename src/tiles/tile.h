@@ -33,6 +33,7 @@ public:
 	TileType tileType;
 
 	void render(sf::RenderWindow*);
+	void set_tile(TileType, bool, std::string);
 
 	bool may_pass() { return this->walkable; }
 	sf::Texture* get_texture(){ return &txr; }
