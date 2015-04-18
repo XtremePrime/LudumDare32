@@ -59,5 +59,20 @@ void Tile::init()
         case 9:
         	set_tile(TileType::SOIL_2, true, "res/Tiles/soil1_2.png");
         break;
+        case 10:
+            set_tile(TileType::STONE, false, "res/Tiles/stone.png");
+        break;
+        case 11:
+            set_tile(TileType::STONE_DOOR0, false, "res/Tiles/stone_door.png");
+        break;
+        case 12:
+            set_tile(TileType::STONE_DOOR1, false, "res/Tiles/stone_door1.png");
+        break;
+        case 13:
+            set_tile(TileType::STONE1, false, "res/Tiles/stone1.png");
+        case 14:
+            set_tile(TileType::STONE2, false, "res/Tiles/stone2.png");
+        case 15:
+            set_tile(TileType::STONE3, false, "res/Tiles/stone3.png");
 	}
 }

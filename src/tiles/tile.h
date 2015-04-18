@@ -4,16 +4,22 @@
 #include <SFML/Graphics.hpp>
 
 enum class TileType {
-	GROUND_0 = 1,
-    GROUND_1 = 2,
-    GROUND_2 = 3,
-	WATER_TOP = 4,
-	WATER_MID = 5,
-	WATER_BOT = 6,
-	LAVA = 7,
-	SOIL_0 = 8,
-	SOIL_1 = 9,
-	SOIL_2 = 10
+	GROUND_0 ,
+    GROUND_1 ,
+    GROUND_2 ,
+	WATER_TOP ,
+	WATER_MID ,
+	WATER_BOT ,
+	LAVA ,
+	SOIL_0 ,
+	SOIL_1 ,
+	SOIL_2 ,
+	STONE ,
+	STONE_DOOR0 ,
+	STONE_DOOR1 ,
+    STONE1 ,
+    STONE2 ,
+    STONE3
 };
 
 class Tile
