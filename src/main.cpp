@@ -1,9 +1,9 @@
 #include <iostream>
+#include "game.h"
 
 int main()
 {
-    std::cout << "Hello Ludum Dare 32!";
-    std::cout << "\n Hello again!\n";
-    std::cout << "Hello m8.\n";
-    return 0;
+	Game game;
+	game.run();
+	return 0;
 }
