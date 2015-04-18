@@ -1,11 +1,12 @@
 #ifndef GAMESTATE_H
 #define GAMESTATE_H
 
-#include "state.h"
-#include "../level.h"
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "state.h"
+#include "../level.h"
+#include "../entities/player.h"
 
 class GameState : public State
 {
@@ -13,6 +14,7 @@ private:
 	bool is_paused = false;
 	Level level;
 	sf::View view;
+	// Player player;
 	
 	//- Music & sound
 	sf::Music music;

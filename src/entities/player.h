@@ -15,8 +15,8 @@ private:
     int min_dmg;
     int max_dmg;
 public:
-    Player(int,int,int);
-    ~Player();
+    // Player(int,int,int);
+    // ~Player();
 
     void init();
 
