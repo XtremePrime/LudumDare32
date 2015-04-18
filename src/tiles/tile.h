@@ -1,20 +1,33 @@
-#ifndef STATE_H
-#define STATE_H
+#ifndef TILE_H
+#define TILE_H
 
-#include "../game.h"
+#include <SFML/Graphics.hpp>
 
-#include "tiles/groundtile.h"
-#include "tiles/watertile.h"
-
-enum class TileType { GROUND, WATER };
+enum class TileType { 
+	GROUND = 0, 
+	WATER = 1 
+};
 
 class Tile
 {
 private:
-public:
-	const TileType tile_type;
+	int id;
+	bool walkable;
 
-	virtual bool may_pass() = 0;
+	sf::Texture txr;
+	sf::Sprite spr;
+
+	void init();
+public:
+	Tile();
+	Tile(int id);
+	TileType tileType;
+
+	void render(sf::RenderWindow*);
+
+	bool may_pass() { return this->walkable; }
+	sf::Texture* get_texture(){ return &txr; }
+	sf::Sprite* get_sprite(){ return &spr; }
 };
 
-#endif // STATE_H
+#endif // TILE_H

@@ -2,11 +2,13 @@
 #define GAMESTATE_H
 
 #include "state.h"
+#include "../level.h"
 
 class GameState : public State
 {
 private:
 	bool is_paused = false;
+	Level level;
 protected:
 	static GameState* _instance;
 	GameState(){}
