@@ -1,19 +1,28 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include <vector>
+#include <string>
+#include <SFML/Graphics.hpp>
 
-class player{
+
+class Player{
 
 private:
     int player_id;
 
-
     sf::Texture war_txr;
     sf::Sprite war_spr;
 
+    std::string name;
+    int max_hp;
+    int hp;
+    int xp;
+    int lvl;
+    int min_dmg;
+    int max_dmg;
+
 public:
-    player();
-    ~player();
+    Player(int,int,int);
+    ~Player();
 
     int coordinates(float,float);
 
