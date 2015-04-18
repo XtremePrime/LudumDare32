@@ -46,6 +46,8 @@
 		<Linker>
 			<Add directory="lib" />
 		</Linker>
+		<Unit filename="src/entity/player.cpp" />
+		<Unit filename="src/entity/player.h" />
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/game.h" />
 		<Unit filename="src/level.cpp" />
@@ -57,7 +59,6 @@
 		<Unit filename="src/texturemanager.cpp" />
 		<Unit filename="src/texturemanager.h" />
 		<Unit filename="src/tiles/groundtile.h" />
-		<Unit filename="src/tiles/tile.cpp" />
 		<Unit filename="src/tiles/tile.h" />
 		<Extensions>
 			<code_completion />
