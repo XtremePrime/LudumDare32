@@ -14,3 +14,8 @@ int Player::coordinates(float x, float y){
 
 
 }
+
+void Player::actions(){
+
+    int ok=0;
+}

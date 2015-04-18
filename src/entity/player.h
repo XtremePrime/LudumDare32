@@ -26,6 +26,7 @@ public:
 
     int coordinates(float,float);
 
+    void actions ();
 
 };
 
