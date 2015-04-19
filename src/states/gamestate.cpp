@@ -35,16 +35,34 @@ void GameState::handle_events(Game* game, sf::Event event)
 		player.handle_events(event);
 		if(event.type == sf::Event::KeyPressed)
 		{
-			if(event.key.code == sf::Keyboard::W)
-				view.move(0, -32);
-			else if(event.key.code == sf::Keyboard::S)
-				view.move(0, 32);
+			if(event.key.code == sf::Keyboard::W){
+				if(!player.hasCollision(level.get_tile(player.get_x(),player.get_y()-1))){
+					player.move(sf::Vector2f(0, -1));
+					view.move(0, -32);
+				}
+			}
+			else if(event.key.code == sf::Keyboard::S){
+				if(!player.hasCollision(level.get_tile(player.get_x(),player.get_y()+1))){
+					player.move(sf::Vector2f(0, 1));
+					view.move(0, 32);
+				}
+			}
 
 
-			if(event.key.code == sf::Keyboard::D)
-				view.move(32, 0);
-			else if(event.key.code == sf::Keyboard::A)
-				view.move(-32, 0);
+			if(event.key.code == sf::Keyboard::D){
+				if(!player.hasCollision(level.get_tile(player.get_x()+1,player.get_y()))){
+					player.move(sf::Vector2f(1, 0));
+					view.move(32, 0);
+				}
+				
+			}
+			else if(event.key.code == sf::Keyboard::A){
+				if(!player.hasCollision(level.get_tile(player.get_x()-1,player.get_y()))){
+					player.move(sf::Vector2f(-1, 0));
+					view.move(-32, 0);
+				}
+				
+			}
 		}
 	}
 	//- Controls in paused state

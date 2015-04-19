@@ -10,6 +10,9 @@ private:
 public:
 	enum Direction{UP,DOWN,LEFT,RIGHT};
 
+	std::string name;
+    int max_hp, hp, lvl, dmg;
+
 	sf::Texture txr;
 	sf::Sprite spr;
 	sf::Vector2f coord;

@@ -19,10 +19,13 @@ private:
 	int rows, cols;
 
 	void print_map(vector2di);
-	void convert();
+	void convert(vector2di);
 public:
 	void render(sf::RenderWindow*);
 	void load_from_file(std::string);
+
+	tilevector get_tilemap() { return this->tiles; }
+	Tile* get_tile(int x, int y) { return this->tiles[x][y]; }
 };
 
 #endif // LEVEL_H
