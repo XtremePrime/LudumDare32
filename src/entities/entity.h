@@ -18,9 +18,15 @@ public:
 	sf::Vector2f coord;
 	Direction dir;
 
+	virtual void move(sf::Vector2f) = 0;
+	virtual bool hasCollision(Tile*) = 0;
+
 	virtual void handle_events(sf::Event event) = 0;
 	virtual void update(sf::Time deltaTime) = 0;
 	virtual void render(sf::RenderWindow*) = 0;
+
+	float get_x() { return coord.x; }
+    float get_y() { return coord.y; }
 };
 
 #endif // ENTITY_H

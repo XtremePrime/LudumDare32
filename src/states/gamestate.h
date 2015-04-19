@@ -7,6 +7,8 @@
 #include "state.h"
 #include "../level.h"
 #include "../entities/player.h"
+#include "../entities/mob.h"
+#include <cstdlib>
 
 class GameState : public State
 {
@@ -15,9 +17,15 @@ private:
 	Level level;
 	sf::View view;
 	Player player;
+	Mob testmob;
+
+	//- Timers
+	sf::Clock mob_timer;
 
 	//- Music & sound
 	sf::Music music;
+
+	sf::Vector2f generate_move(Level);
 protected:
 	static GameState* _instance;
 	GameState(){}

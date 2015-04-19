@@ -7,6 +7,8 @@ void Game::init()
 	this->window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "Untitled Game", sf::Style::Titlebar | sf::Style::Close);
 	this->window.setVerticalSyncEnabled(true);
 	this->window.setKeyRepeatEnabled(false);
+
+	srand(time(NULL));
 }
 
 void Game::handle_events(sf::Event ev)

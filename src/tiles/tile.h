@@ -33,6 +33,8 @@ class Tile
 private:
 
 	bool walkable;
+	bool occupied;
+	bool hazardous;
 
 	sf::Texture txr;
 	sf::Sprite spr;
@@ -45,9 +47,11 @@ public:
 	TileType tileType;
 
 	void render(sf::RenderWindow*);
-	void set_tile(TileType, bool, std::string);
+	void set_tile(TileType, bool, bool, bool, std::string);
 
 	bool may_pass() { return this->walkable; }
+	bool get_occupied() { return this->occupied; }
+	void set_occupied(bool occ) { this->occupied = occ; }
 	sf::Texture* get_texture(){ return &txr; }
 	sf::Sprite* get_sprite(){ return &spr; }
 };
