@@ -14,6 +14,7 @@ class GameState : public State
 {
 private:
 	bool is_paused = false;
+	bool has_popup = false;
 	Level level;
 	sf::View view;
 	Player player;
