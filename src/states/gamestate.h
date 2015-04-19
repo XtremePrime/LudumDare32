@@ -15,7 +15,7 @@ private:
 	Level level;
 	sf::View view;
 	Player player;
-	
+
 	//- Music & sound
 	sf::Music music;
 protected:

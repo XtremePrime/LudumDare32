@@ -19,7 +19,11 @@ enum class TileType {
 	STONE_DOOR1 ,
     STONE1 ,
     STONE2 ,
-    STONE3
+    STONE3 ,
+    GROUND_3 ,
+    STONE_DOOR2 ,
+    STONE_DOOR3 ,
+    STONE_DOOR4
 };
 
 class Tile

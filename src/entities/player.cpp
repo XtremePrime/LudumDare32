@@ -36,11 +36,17 @@ void Player::handle_events(sf::Event event)
 		{
 			if(event.key.code == sf::Keyboard::W){
 				coord.y -= 1;
+				if(dir != Direction::UP){
+					dir = Direction::UP;
+				}
 			}
 			else if(event.key.code == sf::Keyboard::S){
-				coord.y += 1;
+			    coord.y += 1;
+                if(dir != Direction::DOWN){
+					dir = Direction::DOWN;
+				}
 			}
-			
+
 
 			if(event.key.code == sf::Keyboard::D){
 				coord.x += 1;
