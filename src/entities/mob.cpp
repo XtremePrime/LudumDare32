@@ -28,9 +28,9 @@ void Mob::move(sf::Vector2f c)
 	this->coord.y += c.y;
 
 	//- Set direction
-	if(c.y == -1) 
+	if(c.y == -1)
 		dir = Direction::UP;
-	else if(c.y == 1) 
+	else if(c.y == 1)
 		dir = Direction::DOWN;
 	if(c.x == -1)
 		dir = Direction::LEFT;

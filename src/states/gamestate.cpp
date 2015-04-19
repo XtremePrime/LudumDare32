@@ -16,10 +16,10 @@ void GameState::init()
 	music.setLoop(true);
 	// music.play();
 
-	view.setCenter(sf::Vector2f(128-32, 128));
+	view.setCenter(sf::Vector2f(128-32, 128-32));
 	view.setSize(sf::Vector2f(256-64, 256-64));
 
-	player.init(sf::Vector2f(2,4), level, rand()%3);
+	player.init(sf::Vector2f(2,2), level, rand()%3);
 	testmob.init(sf::Vector2f(5,5), level);
 	level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
 }
@@ -64,7 +64,7 @@ void GameState::handle_events(Game* game, sf::Event event)
 					level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
 					view.move(32, 0);
 				}
-				
+
 			}
 			else if(event.key.code == sf::Keyboard::A){
 				if(!player.hasCollision(level.get_tile(player.get_x()-1,player.get_y()))){
@@ -73,7 +73,7 @@ void GameState::handle_events(Game* game, sf::Event event)
 					level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
 					view.move(-32, 0);
 				}
-				
+
 			}
 		}
 	}
@@ -107,7 +107,7 @@ void GameState::update(Game* game, sf::Time deltaTime)
 		player.update(deltaTime);
 		testmob.update(deltaTime);
 
-		if(mob_timer.getElapsedTime().asMilliseconds() >= 2000)
+		if(mob_timer.getElapsedTime().asMilliseconds() >= 1000)
 		{
 			std::cout << "Move time!\n";
 			testmob.move(generate_move(this->level));
