@@ -7,6 +7,7 @@
 #include "state.h"
 #include "../level.h"
 #include "../entities/player.h"
+#include <cstdlib>
 
 class GameState : public State
 {

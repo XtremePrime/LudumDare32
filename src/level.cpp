@@ -25,7 +25,6 @@ void Level::load_from_file(std::string filename)
 	file.close();
 
 	print_map(this->map);
-	system("PAUSE");
 	convert(this->map);
 }
 

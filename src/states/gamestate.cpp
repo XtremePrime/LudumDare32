@@ -19,7 +19,7 @@ void GameState::init()
 	view.setCenter(sf::Vector2f(128-32, 128));
 	view.setSize(sf::Vector2f(256-64, 256-64));
 
-	player.init(sf::Vector2f(2,4), level);
+	player.init(sf::Vector2f(2,4), level, rand()%3);
 }
 
 void GameState::cleanup()

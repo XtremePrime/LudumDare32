@@ -2,9 +2,22 @@
 
 #define TILESCALE 32
 
-void Player::init(sf::Vector2f c, Level level)
+void Player::init(sf::Vector2f c, Level level, int charclass)
 {
-	this->txr.loadFromFile("res/Tiles/warr_bow.png");
+	std::string playermodel;
+	int randop = rand()%2;
+	switch(charclass){
+		case 0: //- Warrior
+			playermodel = (randop == 0 ? "res/Tiles/warr_bow.png" : "res/Tiles/warr_staff.png");
+		break;
+		case 1: //- Archer
+			playermodel = (randop == 0 ? "res/Tiles/archer_sword.png" : "res/Tiles/archer_wand.png");
+		break;
+		case 2: //- Wizard
+			playermodel = (randop == 0 ? "res/Tiles/wizard_sword.png" : "res/Tiles/wizard_bow.png");
+		break;
+	}
+	this->txr.loadFromFile(playermodel);
 	this->spr.setTexture(txr);
 
 	this->coord.x = c.x;
@@ -24,43 +37,35 @@ bool Player::hasCollision(Tile* tile)
 
 void Player::move(sf::Vector2f c)
 {
+	//- Update coords
 	this->coord.x += c.x;
 	this->coord.y += c.y;
+
+	//- Set direction
+	if(c.y == -1) 
+		dir = Direction::UP;
+	else if(c.y == 1) 
+		dir = Direction::DOWN;
+	if(c.x == -1)
+		dir = Direction::LEFT;
+	else if(c.x == 1)
+		dir = Direction::RIGHT;
+
+	//- Flip model if dir
+	if(dir == Direction::LEFT)
+		spr.setTextureRect(sf::IntRect(32, 0, -32, 32));
+	else if(dir == Direction::RIGHT)
+		spr.setTextureRect(sf::IntRect(0, 0, 32, 32));
 }
 
 void Player::handle_events(sf::Event event)
 {
-		// if(event.type == sf::Event::KeyPressed)
-		// {
-		// 	if(event.key.code == sf::Keyboard::W){
-		// 		coord.y -= 1;
-		// 		if(dir != Direction::UP){
-		// 			dir = Direction::UP;
-		// 		}
-		// 	}
-		// 	else if(event.key.code == sf::Keyboard::S){
-		// 	    coord.y += 1;
-  //               if(dir != Direction::DOWN){
-		// 			dir = Direction::DOWN;
-		// 		}
-		// 	}
-
-
-		// 	if(event.key.code == sf::Keyboard::D){
-		// 		coord.x += 1;
-		// 		if(dir != Direction::RIGHT){
-		// 			dir = Direction::RIGHT;
-		// 			spr.setTextureRect(sf::IntRect(0, 0, 32, 32));
-		// 		}
-		// 	}
-		// 	else if(event.key.code == sf::Keyboard::A){
-		// 		coord.x -= 1;
-		// 		if(dir != Direction::LEFT){
-		// 			dir = Direction::LEFT;
-		// 			spr.setTextureRect(sf::IntRect(32, 0, -32, 32));
-		// 		}
-		// 	}
-		// }
+	if(event.type == sf::Event::KeyPressed)
+	{
+		if(event.key.code == sf::Keyboard::E || event.key.code == sf::Keyboard::Return){
+			std::cout << "Action!\n";
+		}
+	}
 }
 
 void Player::update(sf::Time deltaTime)

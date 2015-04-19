@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 
 class State;
 class Game
