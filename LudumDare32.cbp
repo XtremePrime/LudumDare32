@@ -53,6 +53,8 @@
 		<Unit filename="src/level.cpp" />
 		<Unit filename="src/level.h" />
 		<Unit filename="src/main.cpp" />
+		<Unit filename="src/states/changestate.cpp" />
+		<Unit filename="src/states/changestate.h" />
 		<Unit filename="src/states/gamestate.cpp" />
 		<Unit filename="src/states/gamestate.h" />
 		<Unit filename="src/states/introstate.cpp" />

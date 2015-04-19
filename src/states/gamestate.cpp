@@ -16,10 +16,10 @@ void GameState::init()
 	music.setLoop(true);
 	// music.play();
 
-	view.setCenter(sf::Vector2f(128-32, 128-32));
+	view.setCenter(sf::Vector2f(128-32, 128));
 	view.setSize(sf::Vector2f(256-64, 256-64));
 
-	player.init(sf::Vector2f(3,3), level);
+	player.init(sf::Vector2f(2,4), level);
 }
 
 void GameState::cleanup()
@@ -39,7 +39,7 @@ void GameState::handle_events(Game* game, sf::Event event)
 				view.move(0, -32);
 			else if(event.key.code == sf::Keyboard::S)
 				view.move(0, 32);
-			
+
 
 			if(event.key.code == sf::Keyboard::D)
 				view.move(32, 0);
