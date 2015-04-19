@@ -20,6 +20,8 @@ void GameState::init()
 	view.setSize(sf::Vector2f(256-64, 256-64));
 
 	player.init(sf::Vector2f(2,4), level, rand()%3);
+	testmob.init(sf::Vector2f(5,5), level);
+	level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
 }
 
 void GameState::cleanup()
@@ -37,13 +39,19 @@ void GameState::handle_events(Game* game, sf::Event event)
 		{
 			if(event.key.code == sf::Keyboard::W){
 				if(!player.hasCollision(level.get_tile(player.get_x(),player.get_y()-1))){
+					//- Setting previous tile as not occupied
+					level.get_tile(player.get_x(), player.get_y())->set_occupied(false);
 					player.move(sf::Vector2f(0, -1));
+					//- Making new tile occupied
+					level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
 					view.move(0, -32);
 				}
 			}
 			else if(event.key.code == sf::Keyboard::S){
 				if(!player.hasCollision(level.get_tile(player.get_x(),player.get_y()+1))){
+					level.get_tile(player.get_x(), player.get_y())->set_occupied(false);
 					player.move(sf::Vector2f(0, 1));
+					level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
 					view.move(0, 32);
 				}
 			}
@@ -51,14 +59,18 @@ void GameState::handle_events(Game* game, sf::Event event)
 
 			if(event.key.code == sf::Keyboard::D){
 				if(!player.hasCollision(level.get_tile(player.get_x()+1,player.get_y()))){
+					level.get_tile(player.get_x(), player.get_y())->set_occupied(false);
 					player.move(sf::Vector2f(1, 0));
+					level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
 					view.move(32, 0);
 				}
 				
 			}
 			else if(event.key.code == sf::Keyboard::A){
 				if(!player.hasCollision(level.get_tile(player.get_x()-1,player.get_y()))){
+					level.get_tile(player.get_x(), player.get_y())->set_occupied(false);
 					player.move(sf::Vector2f(-1, 0));
+					level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
 					view.move(-32, 0);
 				}
 				
@@ -76,11 +88,34 @@ void GameState::handle_events(Game* game, sf::Event event)
 	}
 }
 
+sf::Vector2f GameState::generate_move(Level level)
+{
+	sf::Vector2f c;
+	do{
+		c.x = rand()%3-1;
+		c.y = rand()%3-1;
+		std::cout << "Attempted: " << c.x << "/" << c.y << "| hasCol: " << testmob.hasCollision(level.get_tile((int)(testmob.get_x()+c.x), (int)(testmob.get_y()+c.y))) << "\n";
+	}while(testmob.hasCollision(level.get_tile((int)(testmob.get_x()+c.x), (int)(testmob.get_y()+c.y))));
+	std::cout << "Generated: " << c.x << "/" << c.y << "\n";
+	return c;
+}
+
 void GameState::update(Game* game, sf::Time deltaTime)
 {
 	if(!is_paused)
 	{
 		player.update(deltaTime);
+		testmob.update(deltaTime);
+
+		if(mob_timer.getElapsedTime().asMilliseconds() >= 2000)
+		{
+			std::cout << "Move time!\n";
+			testmob.move(generate_move(this->level));
+			mob_timer.restart();
+		}
+
+		//level.get_tile(player.get_x(), player.get_y())->setOccupied = true;
+
 		game->get_window()->setView(view);
 	}
 }
@@ -91,6 +126,7 @@ void GameState::render(Game* game)
 	{
 		level.render(game->get_window());
 		player.render(game->get_window());
+		testmob.render(game->get_window());
 	}
 }
 

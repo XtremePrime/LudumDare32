@@ -26,9 +26,6 @@ public:
     int get_hp() { return this->hp; }
     int get_xp() { return this->xp; }
     int get_lvl() { return this->lvl; }
-
-    float get_x() { return this->coord.x; }
-    float get_y() { return this->coord.y; }
 };
 
 

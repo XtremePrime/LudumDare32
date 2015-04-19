@@ -8,13 +8,13 @@ void Player::init(sf::Vector2f c, Level level, int charclass)
 	int randop = rand()%2;
 	switch(charclass){
 		case 0: //- Warrior
-			playermodel = (randop == 0 ? "res/Tiles/warr_bow.png" : "res/Tiles/warr_staff.png");
+			playermodel = (randop == 0 ? "res/entities/warr_bow.png" : "res/entities/warr_staff.png");
 		break;
 		case 1: //- Archer
-			playermodel = (randop == 0 ? "res/Tiles/archer_sword.png" : "res/Tiles/archer_wand.png");
+			playermodel = (randop == 0 ? "res/entities/archer_sword.png" : "res/entities/archer_wand.png");
 		break;
 		case 2: //- Wizard
-			playermodel = (randop == 0 ? "res/Tiles/wizard_sword.png" : "res/Tiles/wizard_bow.png");
+			playermodel = (randop == 0 ? "res/entities/wizard_sword.png" : "res/entities/wizard_bow.png");
 		break;
 	}
 	this->txr.loadFromFile(playermodel);
