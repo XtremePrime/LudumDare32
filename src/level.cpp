@@ -10,7 +10,6 @@ void Level::load_from_file(std::string filename)
 	file.open(filename);
 	if(!file.is_open()){std::cout << "File couldn't be open.\n";return;}
 	file >> rows >> cols;
-	std::cout << rows << " / " << cols << "\n";
 
 	for(int i = 0; i < rows; ++i)
 	{
@@ -19,30 +18,27 @@ void Level::load_from_file(std::string filename)
 		{
 			int x;
 			file >> x;
-			std::cout << "x: " << x << "\n";
-			// system("PAUSE");
-			row.push_back(x); 
+			row.push_back(x);
 		}
 		this->map.push_back(row);
 	}
 	file.close();
 
 	print_map(this->map);
-	convert();
+	system("PAUSE");
+	convert(this->map);
 }
 
 //- Convert matrix into Tile* vector for use.
-void Level::convert()
+void Level::convert(vector2di vec)
 {
-	int i = 0, k = 0;
-	for(int i = 0; i < rows; ++i)
+	for(int y = 0; y < rows; ++y)
 	{
 		std::vector<Tile*> row;
-		for(int k = 0; k < cols; ++k)
+		for(int x = 0; x < cols; ++x)
 		{
-			row.push_back(new Tile(map[i][k]));
-			row.back()->get_sprite()->setPosition(sf::Vector2f(k*32, i*32));
-			std::cout << "Info: " << map[i][k] << " | " << i << " | " << k << "\n";
+			row.push_back(new Tile(vec[x][y]));
+			row.back()->get_sprite()->setPosition(sf::Vector2f(y*32, x*32));
 		}
 		tiles.push_back(row);
 	}
@@ -50,11 +46,9 @@ void Level::convert()
 
 void Level::render(sf::RenderWindow* window)
 {
-	// for(std::vector<std::vector<Tile*>>::iterator it = tiles.begin(); it != tiles.end(); ++it)
-		// for(std::vector<Tile*>::iterator jt = it->begin(); jt != it->end(); ++jt)
-	for(int i = 0; i < rows; ++i)
-		for(int k = 0; k < cols; ++k)
-			tiles[i][k]->render(window);
+	for(int y = 0; y < rows; ++y)
+		for(int x = 0; x < cols; ++x)
+			tiles[y][x]->render(window);
 }
 
 //- Debugging purposes.
