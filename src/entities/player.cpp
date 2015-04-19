@@ -18,8 +18,6 @@ void Player::init(sf::Vector2f c, Level level)
 	this->coord.x = c.x;
 	this->coord.y = c.y;
 
-	std::cout << coord.x*32 << "\n";
-
 	spr.setPosition(coord.x*32, coord.y*32);
 
 	dir = Direction::RIGHT;

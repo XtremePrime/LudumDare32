@@ -63,10 +63,10 @@ void Tile::init()
             set_tile(TileType::STONE, false, "res/Tiles/stone.png");
         break;
         case 11:
-            set_tile(TileType::STONE_DOOR0, false, "res/Tiles/stone_door.png");
+            set_tile(TileType::STONE_DOOR0, true, "res/Tiles/stone_door.png");
         break;
         case 12:
-            set_tile(TileType::STONE_DOOR1, false, "res/Tiles/stone_door1.png");
+            set_tile(TileType::STONE_DOOR1, true, "res/Tiles/stone_door1.png");
         break;
         case 13:
             set_tile(TileType::STONE1, false, "res/Tiles/stone1.png");
@@ -81,13 +81,16 @@ void Tile::init()
             set_tile(TileType::GROUND_3, true, "res/Tiles/ground1_3.png");
         break;
         case 17:
-            set_tile(TileType::STONE_DOOR2, false, "res/Tiles/stone_door2.png");
+            set_tile(TileType::STONE_DOOR2, true, "res/Tiles/stone_door2.png");
         break;
         case 18:
-            set_tile(TileType::STONE_DOOR3, false, "res/Tiles/stone_door3.png");
+            set_tile(TileType::STONE_DOOR3, true, "res/Tiles/stone_door3.png");
         break;
         case 19:
-            set_tile(TileType::STONE_DOOR4, false, "res/Tiles/stone_door4.png");
+            set_tile(TileType::STONE_DOOR4, true, "res/Tiles/stone_door4.png");
+        break;
+        case 20:
+            set_tile(TileType::GROUND_4, true, "res/Tiles/green_walkable_stone");
         break;
 	}
 }

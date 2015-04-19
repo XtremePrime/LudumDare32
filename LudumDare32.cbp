@@ -46,6 +46,9 @@
 		<Linker>
 			<Add directory="lib" />
 		</Linker>
+		<Unit filename="src/entities/entity.h" />
+		<Unit filename="src/entities/mob.cpp" />
+		<Unit filename="src/entities/mob.h" />
 		<Unit filename="src/entities/player.cpp" />
 		<Unit filename="src/entities/player.h" />
 		<Unit filename="src/game.cpp" />

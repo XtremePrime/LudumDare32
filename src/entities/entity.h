@@ -1,6 +1,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+
 #include "../level.h"
 
 class Entity
@@ -16,7 +17,7 @@ public:
 
 	virtual void handle_events(sf::Event event) = 0;
 	virtual void update(sf::Time deltaTime) = 0;
-	virtual void render(sf::RenderWindow*) = 0;	
+	virtual void render(sf::RenderWindow*) = 0;
 };
 
 #endif // ENTITY_H
