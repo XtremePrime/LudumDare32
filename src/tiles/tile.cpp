@@ -127,5 +127,11 @@ void Tile::init()
         case 31:
             set_tile(TileType::STAIRS, true, false, false, "res/Tiles/stairs.png");
         break;
+        case 32:
+            set_tile(TileType::STAIRS1, true, false, false, "res/Tiles/static_stairs.png");
+        break;
+        case 33:
+            set_tile(TileType::STAIRS2, true, false, false, "res/Tiles/stairs_down.png");
+        break;
 	}
 }

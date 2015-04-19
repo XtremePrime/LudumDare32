@@ -10,7 +10,7 @@ GameState* GameState::instance(){
 
 void GameState::init()
 {
-	level.load_from_file("res/levels/level1.txt");
+	level.load_from_file("res/levels/level2.txt"); // Nu ma injura daca am uitat sa modific la loc, testing reasons
 	music.openFromFile("res/bgm/POL-evil-throne-short.wav");
 
 	music.setLoop(true);
@@ -19,7 +19,7 @@ void GameState::init()
 	view.setCenter(sf::Vector2f(128-32, 128-32));
 	view.setSize(sf::Vector2f(256-64, 256-64));
 
-	player.init(sf::Vector2f(2,4), level, rand()%3);
+	player.init(sf::Vector2f(2,3), level, rand()%3);
 
 	enemies.push_back(new Mob(sf::Vector2f(10, 10), level));
 	enemies.push_back(new Mob(sf::Vector2f(10, 11), level));

@@ -4,7 +4,7 @@
 
 Mob::Mob(sf::Vector2f c, Level level)
 {
-	this->txr.loadFromFile("res/entities/Jimi.png");
+	this->txr.loadFromFile("res/entities/rat_liviu.png"); // also for testing pourpose
 	this->spr.setTexture(txr);
 
 	this->coord.x = c.x;
@@ -17,7 +17,7 @@ Mob::Mob(sf::Vector2f c, Level level)
 
 void Mob::init(sf::Vector2f c, Level level)
 {
-    this->txr.loadFromFile("res/entities/Jimi.png");
+    this->txr.loadFromFile("res/entities/rat_liviu.png"); // yeah ... this one too
 	this->spr.setTexture(txr);
 
 	this->coord.x = c.x;

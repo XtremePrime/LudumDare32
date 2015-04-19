@@ -35,7 +35,9 @@ enum class TileType {
     GROUND_12 ,
     GROUND_13 ,
     GROUND_14 ,
-    STAIRS
+    STAIRS ,
+    STAIRS1 ,
+    STAIRS2
 };
 
 class Tile
