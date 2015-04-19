@@ -17,7 +17,8 @@ private:
 	Level level;
 	sf::View view;
 	Player player;
-	Mob testmob;
+	std::vector<Mob*> enemies;
+	std::vector<Entity*> entities;
 
 	//- Timers
 	sf::Clock mob_timer;
@@ -25,7 +26,9 @@ private:
 	//- Music & sound
 	sf::Music music;
 
-	sf::Vector2f generate_move(Level);
+	// sf::Vector2f generate_move(Level);
+
+	void change_level();
 protected:
 	static GameState* _instance;
 	GameState(){}

@@ -21,6 +21,7 @@ private:
 	void print_map(vector2di);
 	void convert(vector2di);
 public:
+	void cleanup();
 	void render(sf::RenderWindow*);
 	void load_from_file(std::string);
 

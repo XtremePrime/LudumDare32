@@ -2,6 +2,19 @@
 
 #define TILESCALE 32
 
+Mob::Mob(sf::Vector2f c, Level level)
+{
+	this->txr.loadFromFile("res/entities/Jimi.png");
+	this->spr.setTexture(txr);
+
+	this->coord.x = c.x;
+	this->coord.y = c.y;
+
+	spr.setPosition(coord.x*TILESCALE, coord.y*TILESCALE);
+
+	dir = Direction::RIGHT;
+}
+
 void Mob::init(sf::Vector2f c, Level level)
 {
     this->txr.loadFromFile("res/entities/Jimi.png");
@@ -20,6 +33,18 @@ bool Mob::hasCollision(Tile* tile)
 	if(tile->may_pass() == true)
 		return false;
 	return true;
+}
+
+sf::Vector2f Mob::generate_move(Level level)
+{
+	sf::Vector2f c;
+	do{
+		c.x = rand()%3-1;
+		c.y = rand()%3-1;
+		std::cout << "Attempted: " << c.x << "/" << c.y << "| hasCol: " << hasCollision(level.get_tile((int)(get_x()+c.x), (int)(get_y()+c.y))) << "\n";
+	}while(hasCollision(level.get_tile((int)(get_x()+c.x), (int)(get_y()+c.y))));
+	std::cout << "Generated: " << c.x << "/" << c.y << "\n";
+	return c;
 }
 
 void Mob::move(sf::Vector2f c)

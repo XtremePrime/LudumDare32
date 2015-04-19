@@ -62,3 +62,8 @@ void Level::print_map(std::vector<std::vector<int>> map)
 		std::cout << "\n";
 	}
 }
+
+void Level::cleanup()
+{
+	tiles.clear();
+}

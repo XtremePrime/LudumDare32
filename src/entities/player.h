@@ -11,9 +11,6 @@ private:
     int score;
     int xp;
 public:
-    // Player(int,int,int);
-    // ~Player();
-
     void init(sf::Vector2f, Level, int);
 
     void move(sf::Vector2f);
