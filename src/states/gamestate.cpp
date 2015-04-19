@@ -16,7 +16,7 @@ void GameState::init()
 	music.setLoop(true);
 	// music.play();
 
-	view.setCenter(sf::Vector2f(128-32, 128));
+	view.setCenter(sf::Vector2f(128-32, 128-32));
 	view.setSize(sf::Vector2f(256-64, 256-64));
 
 	player.init(sf::Vector2f(2,4), level, rand()%3);
@@ -119,7 +119,7 @@ void GameState::update(Game* game, sf::Time deltaTime)
 				enemies[i]->update(deltaTime);
 		}
 
-		if(mob_timer.getElapsedTime().asMilliseconds() >= 2000)
+		if(mob_timer.getElapsedTime().asMilliseconds() >= 1000)
 		{
 			std::cout << "Move time!\n";
 			if(enemies.size() > 0){

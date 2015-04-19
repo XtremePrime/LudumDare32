@@ -65,10 +65,10 @@ void Tile::init()
             set_tile(TileType::STONE, false, false, false, "res/Tiles/stone.png");
         break;
         case 11:
-            set_tile(TileType::STONE_DOOR0, true, false, false, "res/Tiles/stone_door.png");
+            set_tile(TileType::STONE_DOOR0, false, false, false, "res/Tiles/stone_door.png");
         break;
         case 12:
-            set_tile(TileType::STONE_DOOR1, true, false, false, "res/Tiles/stone_door1.png");
+            set_tile(TileType::STONE_DOOR1, false, false, false, "res/Tiles/stone_door1.png");
         break;
         case 13:
             set_tile(TileType::STONE1, false, false, false, "res/Tiles/stone1.png");
@@ -80,7 +80,7 @@ void Tile::init()
             set_tile(TileType::STONE3, false, false, false, "res/Tiles/stone3.png");
         break;
         case 16:
-            set_tile(TileType::GROUND_3, true, false, false, "res/Tiles/ground1_3.png");
+            set_tile(TileType::GROUND_3, true, false, false, "res/Tiles/Ground1_3.png");
         break;
         case 17:
             set_tile(TileType::STONE_DOOR2, true, false, false, "res/Tiles/stone_door2.png");
@@ -92,7 +92,40 @@ void Tile::init()
             set_tile(TileType::STONE_DOOR4, true, false, false, "res/Tiles/stone_door4.png");
         break;
         case 20:
-            set_tile(TileType::GROUND_4, true, false, false, "res/Tiles/green_walkable_stone");
+            set_tile(TileType::GROUND_4, true, false, false, "res/Tiles/green_walkable_stone.png");
+        break;
+        case 21:
+            set_tile(TileType::GROUND_5, true, false, false, "res/Tiles/Ground1_4.png");
+        break;
+        case 22:
+            set_tile(TileType::GROUND_6, true, false, false, "res/Tiles/Ground1_5.png");
+        break;
+        case 23:
+            set_tile(TileType::GROUND_7, true, false, false, "res/Tiles/Ground1_6.png");
+        break;
+        case 24:
+            set_tile(TileType::GROUND_8, true, false, false, "res/Tiles/Ground1_7.png");
+        break;
+        case 25:
+            set_tile(TileType::GROUND_9, true, false, false, "res/Tiles/Ground1_8.png");
+        break;
+        case 26:
+            set_tile(TileType::GROUND_10, true, false, false, "res/Tiles/Ground1_9.png");
+        break;
+        case 27:
+            set_tile(TileType::GROUND_11, true, false, false, "res/Tiles/Ground1_10.png");
+        break;
+        case 28:
+            set_tile(TileType::GROUND_12, true, false, false, "res/Tiles/Ground1_11.png");
+        break;
+        case 29:
+            set_tile(TileType::GROUND_13, true, false, false, "res/Tiles/Ground1_12.png");
+        break;
+        case 30:
+            set_tile(TileType::GROUND_14, true, false, false, "res/Tiles/Ground1_13.png");
+        break;
+        case 31:
+            set_tile(TileType::STAIRS, true, false, false, "res/Tiles/stairs.png");
         break;
 	}
 }
