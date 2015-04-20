@@ -10,7 +10,7 @@ GameState* GameState::instance(){
 
 void GameState::init()
 {
-	level.load_from_file("res/levels/level1.txt"); // Nu ma injura daca am uitat sa modific la loc, testing reasons
+	level.load_from_file("res/levels/level1.txt");
 	music.openFromFile("res/bgm/POL-evil-throne-short.wav");
 
 	music.setLoop(true);
