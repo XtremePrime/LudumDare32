@@ -14,9 +14,9 @@ IntroState* IntroState::instance(){
 
 void IntroState::init()
 {
-	// logo_txr.loadFromFile("res/img/");
-	// logo.setTexture(logo_txr);
-	// logo.setPosition(sf::Vector2f());
+	logo_txr.loadFromFile("res/Screens/1.png");
+	logo.setTexture(logo_txr);
+	logo.setPosition(sf::Vector2f(0,0));
 
 	font.loadFromFile("res/font/PressStart2P.ttf");
 
@@ -62,6 +62,7 @@ void IntroState::render(Game* game)
 	{
 		if(rendering_text)
 			game->get_window()->draw(press_start);
+		game->get_window()->draw(logo);
 	}
 }
 

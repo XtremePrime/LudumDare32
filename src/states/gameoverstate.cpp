@@ -10,7 +10,7 @@ GameOverState* GameOverState::instance(){
 
 void GameOverState::init()
 {
-	screen_txr.loadFromFile("res/Screens/");
+	screen_txr.loadFromFile("res/Screens/Win.png");
 	screen.setTexture(screen_txr);
 
 	screen.setPosition(0, 0);
@@ -25,7 +25,15 @@ void GameOverState::handle_events(Game* game, sf::Event event)
 {
 	if(event.type == sf::Event::KeyPressed)
 	{
-		game->quit();
+		switch(event.key.code)
+		{
+			case sf::Keyboard::Return:
+			case sf::Keyboard::Escape:
+			case sf::Keyboard::Space:
+				game->quit();
+			default:
+			break;
+		}
 	}
 }
 

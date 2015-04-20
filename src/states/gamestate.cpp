@@ -1,5 +1,7 @@
 #include "gamestate.h"
 
+#include <sstream>
+
 GameState* GameState::_instance;
 
 GameState* GameState::instance(){
@@ -120,7 +122,7 @@ void GameState::update(Game* game, sf::Time deltaTime)
 	if(!is_paused && !has_popup)
 	{
 		player.update(deltaTime);
-		// std::cout << "HP: " << player.get_hp() << "\n";
+		if(player.get_death()){}
 
 		if(entities.size() > 0){
 			for(int i = 0; i < entities.size(); ++i)
@@ -136,7 +138,9 @@ void GameState::update(Game* game, sf::Time deltaTime)
 		{
 			if(player.get_x() == entities[i]->get_x() && player.get_y() == entities[i]->get_y())
 			{
-
+				/*std::stringstream ss;
+				ss << "Press E to pick up " << entities[i]->get_name();
+				notification.setString();*/
 			}
 
 		}
