@@ -17,6 +17,7 @@ private:
 	tilevector tiles;
 	vector2di map;
 	int rows, cols;
+	std::vector<Door*> doors;
 
 	void print_map(vector2di);
 	void convert(vector2di);
@@ -27,6 +28,7 @@ public:
 
 	tilevector get_tilemap() { return this->tiles; }
 	Tile* get_tile(int x, int y) { return this->tiles[x][y]; }
+	Door
 };
 
 #endif // LEVEL_H

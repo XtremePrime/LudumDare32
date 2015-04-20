@@ -103,7 +103,6 @@ void GameState::change_level()
 }
 
 
-
 void GameState::update(Game* game, sf::Time deltaTime)
 {
 	if(!is_paused && !has_popup)
@@ -119,7 +118,9 @@ void GameState::update(Game* game, sf::Time deltaTime)
 				enemies[i]->update(deltaTime);
 		}
 
-		if(mob_timer.getElapsedTime().asMilliseconds() >= 1500)
+		if()
+
+		if(mob_timer.getElapsedTime().asMilliseconds() >= 750)
 		{
 			if(enemies.size() > 0){
 				for(int i = 0; i < enemies.size(); ++i){

@@ -27,7 +27,7 @@ private:
 	//- Music & sound
 	sf::Music music;
 
-	// sf::Vector2f generate_move(Level);
+	//- Notification
 
 	void change_level();
 protected:
