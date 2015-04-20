@@ -1,6 +1,8 @@
 #ifndef DOOR_H
 #define DOOR_H
 
+#include <SFML/System.hpp>
+
 class Door
 {
 private:

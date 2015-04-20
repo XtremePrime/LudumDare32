@@ -10,6 +10,12 @@ class IntroState : public State
 {
 private:
 	bool is_paused = false;
+	bool rendering_text = true;
+	sf::Texture logo_txr;
+	sf::Sprite logo;
+	sf::Text press_start;
+	sf::Font font;
+	sf::Clock flash_timer;
 protected:
 	static IntroState* _instance;
 	IntroState(){}

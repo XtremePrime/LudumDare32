@@ -118,8 +118,6 @@ void GameState::update(Game* game, sf::Time deltaTime)
 				enemies[i]->update(deltaTime);
 		}
 
-		if()
-
 		if(mob_timer.getElapsedTime().asMilliseconds() >= 750)
 		{
 			if(enemies.size() > 0){
@@ -168,7 +166,16 @@ void GameState::render(Game* game)
 
 void GameState::cleanup()
 {
-
+	//player.cleanup();
+	/*if(entities.size() > 0){
+		for(int i = 0; i < entities.size(); ++i)
+			entities[i]->cleanup();
+	}
+	if(enemies.size() > 0){
+		for(int i = 0; i < enemies.size(); ++i)
+			enemies[i]->cleanup();
+	}*/
+	level.cleanup();
 }
 
 void GameState::pause()
