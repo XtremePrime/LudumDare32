@@ -47,6 +47,14 @@ sf::Vector2f Mob::generate_move(Level level)
 	return c;
 }
 
+bool Mob::canLocatePlayer(Player p)
+{
+	if( (p.get_x()-coord.x >= -1 && p.get_x()-coord.x <= 1) ||
+		(p.get_y()-coord.y >= -1 && p.get_y()-coord.y <= 1))
+		return true;
+	return false;
+}
+
 void Mob::move(sf::Vector2f c)
 {
 	this->coord.x += c.x;
