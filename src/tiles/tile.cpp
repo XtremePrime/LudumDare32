@@ -133,5 +133,27 @@ void Tile::init()
         case 33:
             set_tile(TileType::STAIRS2, true, false, false, "res/Tiles/stairs_down.png");
         break;
+        case 34:
+            set_tile(TileType::WATER1_LVL2, true, false, false, "res/Tiles/water1_lvl2.png");
+        break;
+        case 35:
+            set_tile(TileType::WATER2_LVL2, true, false, false, "res/Tiles/water2_lvl2.png");
+        break;
+        case 36:
+            set_tile(TileType::WATER3_LVL2, true, false, false, "res/Tiles/water3_lvl2.png");
+        break;
+        case 37:
+            set_tile(TileType::WATER4_LVL2, true, false, false, "res/Tiles/lvl2_water1.png");
+        break;
+        case 38:
+            set_tile(TileType::WATER5_LVL2, true, false, false, "res/Tiles/lvl2_water2.png");
+        break;
+        case 39:
+            set_tile(TileType::WATER6_LVL2, true, false, false, "res/Tiles/lvl2_water3.png");
+        break;
+        case 40:
+            set_tile(TileType::WATER7_LVL2, true, false, false, "res/Tiles/lvl2_water4.png");
+        break;
+
 	}
 }

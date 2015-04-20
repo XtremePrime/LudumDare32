@@ -37,7 +37,14 @@ enum class TileType {
     GROUND_14 ,
     STAIRS ,
     STAIRS1 ,
-    STAIRS2
+    STAIRS2,
+    WATER1_LVL2 ,
+    WATER2_LVL2 ,
+    WATER3_LVL2 ,
+    WATER4_LVL2 ,
+    WATER5_LVL2 ,
+    WATER6_LVL2 ,
+    WATER7_LVL2
 };
 
 class Tile
