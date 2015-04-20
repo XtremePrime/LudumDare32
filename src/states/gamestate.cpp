@@ -119,12 +119,18 @@ void GameState::update(Game* game, sf::Time deltaTime)
 				enemies[i]->update(deltaTime);
 		}
 
-		if(mob_timer.getElapsedTime().asMilliseconds() >= 1000)
+		if(mob_timer.getElapsedTime().asMilliseconds() >= 1500)
 		{
-			std::cout << "Move time!\n";
 			if(enemies.size() > 0){
-				for(int i = 0; i < enemies.size(); ++i)
-					enemies[i]->move(enemies[i]->generate_move(this->level));
+				for(int i = 0; i < enemies.size(); ++i){
+					std::cout << "Locate: " << enemies[i]->canLocatePlayer(player);
+					enemies[i]->set_chasing(enemies[i]->canLocatePlayer(player));
+					if(!enemies[i]->get_chasing())
+						enemies[i]->move(enemies[i]->generate_move(this->level));
+					else{
+						enemies[i]->move(sf::Vector2f(player.get_x()-enemies[i]->get_x(), player.get_y()-enemies[i]->get_y()));
+					}
+				}
 			}
 			mob_timer.restart();
 		}
