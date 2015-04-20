@@ -3,7 +3,7 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "entity.h"
-#include "mob.h"
+// #include "mob.h"
 #include <cstdlib>
 
 class Player : public Entity

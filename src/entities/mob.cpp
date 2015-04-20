@@ -2,6 +2,11 @@
 
 #define TILESCALE 32
 
+Mob::Mob(sf::Vector2f c, Level level, int type)
+{
+	init(c, level, type);
+}
+
 void Mob::init(sf::Vector2f c, Level level, int type)
 {
 	std::string enemymodel;

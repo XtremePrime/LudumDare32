@@ -11,7 +11,7 @@ class Mob : public Entity
 private:
 	bool is_chasing = false;
 public:
-	Mob(sf::Vector2f, Level);
+	Mob(sf::Vector2f, Level, int);
 
     void init(sf::Vector2f, Level, int);
 

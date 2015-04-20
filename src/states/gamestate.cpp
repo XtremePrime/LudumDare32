@@ -21,11 +21,11 @@ void GameState::init()
 
 	player.init(sf::Vector2f(2,3), level, rand()%3);
 
-	enemies.push_back(new Mob(sf::Vector2f(10, 10), level));
-	enemies.push_back(new Mob(sf::Vector2f(10, 11), level));
-	enemies.push_back(new Mob(sf::Vector2f(11, 11), level));
-	enemies.push_back(new Mob(sf::Vector2f(13, 14), level));
-	enemies.push_back(new Mob(sf::Vector2f(15, 11), level));
+	enemies.push_back(new Mob(sf::Vector2f(10, 10), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(10, 11), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(11, 11), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(13, 14), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(15, 11), level, 0));
 
 	level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
 }
