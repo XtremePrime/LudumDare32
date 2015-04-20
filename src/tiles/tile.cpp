@@ -50,7 +50,7 @@ void Tile::init()
         	set_tile(TileType::WATER_BOT, true, false, false, "res/Tiles/Water1_2.png");
         break;
         case 6:
-        	set_tile(TileType::LAVA, false, false, true, "res/Tiles/lava.png");
+        	set_tile(TileType::LAVA, true, false, true, "res/Tiles/lava.png");
         break;
         case 7:
         	set_tile(TileType::SOIL_0, true, false, false, "res/Tiles/soil1_0.png");
@@ -153,6 +153,15 @@ void Tile::init()
         break;
         case 40:
             set_tile(TileType::WATER7_LVL2, true, false, false, "res/Tiles/lvl2_water4.png");
+        break;
+        case 41:
+            set_tile(TileType::ACID1, true, false, true, "res/Tiles/acid1.png");
+        break;
+        case 42:
+            set_tile(TileType::ACID2, true, false, true, "res/Tiles/acid2.png");
+        break;
+        case 43:
+            set_tile(TileType::ACID3, true, false, true, "res/Tiles/acid3.png");
         break;
 
 	}

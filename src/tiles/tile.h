@@ -44,7 +44,10 @@ enum class TileType {
     WATER4_LVL2 ,
     WATER5_LVL2 ,
     WATER6_LVL2 ,
-    WATER7_LVL2
+    WATER7_LVL2 ,
+    ACID1 ,
+    ACID2 ,
+    ACID3
 };
 
 class Tile
