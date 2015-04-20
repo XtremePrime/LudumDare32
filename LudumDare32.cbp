@@ -65,7 +65,6 @@
 		<Unit filename="src/states/state.h" />
 		<Unit filename="src/texturemanager.cpp" />
 		<Unit filename="src/texturemanager.h" />
-		<Unit filename="src/tiles/groundtile.h" />
 		<Unit filename="src/tiles/tile.cpp" />
 		<Unit filename="src/tiles/tile.h" />
 		<Extensions>
