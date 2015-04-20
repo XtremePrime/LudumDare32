@@ -10,6 +10,7 @@ class Mob : public Entity
 {
 private:
 	bool is_chasing = false;
+	bool is_dead = false;
 public:
 	Mob(sf::Vector2f, Level, int);
 
@@ -30,5 +31,6 @@ public:
 
     int get_hp() { return this->hp; }
     int get_dmg() { return this->dmg; }
+    bool get_death() { return this->is_dead; }
 };
 #endif // MOB_H
