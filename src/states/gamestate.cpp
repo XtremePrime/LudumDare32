@@ -118,6 +118,15 @@ void GameState::update(Game* game, sf::Time deltaTime)
 				enemies[i]->update(deltaTime);
 		}
 
+		//- Check if player is on Item
+		for(int i = 0; i < entities.size(); ++i)
+		{
+			if(player.get_x() == entities[i]->get_x() && player.get_y() == entities[i]->get_y()){
+				
+			}
+
+		}
+
 		if(mob_timer.getElapsedTime().asMilliseconds() >= 750)
 		{
 			if(enemies.size() > 0){

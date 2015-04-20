@@ -13,11 +13,12 @@ private:
 public:
 	Mob(sf::Vector2f, Level);
 
-    void init(sf::Vector2f, Level);
+    void init(sf::Vector2f, Level, int);
 
     void move(sf::Vector2f);
     bool hasCollision(Tile*);
     bool canLocatePlayer(Player);
+    bool hitsPlayer(Tile*, Player);
     sf::Vector2f generate_move(Level);
 
 	void handle_events(sf::Event event);

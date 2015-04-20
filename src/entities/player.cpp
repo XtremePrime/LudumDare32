@@ -28,9 +28,10 @@ void Player::init(sf::Vector2f c, Level level, int charclass)
 	dir = Direction::RIGHT;
 }
 
-//bool Player::isEnemyTile(Tile* tile)
-//{
-//}
+// bool Player::hitsEnemy(Tile* tile, Mob mob)
+// {
+
+// }
 
 bool Player::hasCollision(Tile* tile)
 {

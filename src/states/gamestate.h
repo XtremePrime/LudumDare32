@@ -28,6 +28,8 @@ private:
 	sf::Music music;
 
 	//- Notification
+	sf::Font font;
+	sf::Text notification;
 
 	void change_level();
 protected:

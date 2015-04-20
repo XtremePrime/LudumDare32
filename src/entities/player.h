@@ -3,6 +3,7 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "entity.h"
+#include "mob.h"
 #include <cstdlib>
 
 class Player : public Entity
@@ -15,6 +16,7 @@ public:
 
     void move(sf::Vector2f);
     bool hasCollision(Tile*);
+    // bool hitsEnemy(Tile*, Mob);
 
     void handle_events(sf::Event event);
     void update(sf::Time deltaTime);
