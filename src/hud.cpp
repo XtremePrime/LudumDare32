@@ -14,6 +14,10 @@ void Hud::init(Player* player)
 	font.loadFromFile("res/PressStart2P.ttf");
 
 	//- Hardcoded hearts. I have disappointed you, master
+	// hearts.push_back(new Heart());
+
+	// for(int i = 0; i < hearts.size(); ++i)
+	// 	hearts[i]->setTexture(heart_txr);
 }
 
 void Hud::render(sf::RenderWindow* window)
@@ -24,6 +28,9 @@ void Hud::render(sf::RenderWindow* window)
 
 void Hud::update(sf::Time deltaTime)
 {
-	std::cout << player->get_x() << "/" << player->get_y() << "/" << "render\n";
 	rect.setPosition((player->get_x()-2)*TILESCALE,(player->get_y()-3)*TILESCALE);
+	for(int i = 0; i < hearts.size(); ++i)
+	{
+
+	}
 }

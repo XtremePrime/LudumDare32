@@ -23,11 +23,17 @@ void GameState::init()
 	hud.init(&player);
 
 	//- Level 1 pushback
-	enemies.push_back(new Mob(sf::Vector2f(10, 10), level, 0));
-	enemies.push_back(new Mob(sf::Vector2f(10, 11), level, 0));
-	enemies.push_back(new Mob(sf::Vector2f(11, 11), level, 0));
-	enemies.push_back(new Mob(sf::Vector2f(13, 14), level, 0));
-	enemies.push_back(new Mob(sf::Vector2f(15, 11), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(13, 8), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(6, 8), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(5, 8), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(9, 17), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(17, 17), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(4, 22), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(8, 21), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(12, 26), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(20, 30), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(23, 29), level, 0));
+	enemies.push_back(new Mob(sf::Vector2f(25, 23), level, 0));
 
 	level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
 }
@@ -46,6 +52,8 @@ void GameState::handle_events(Game* game, sf::Event event)
 			for(int i = 0; i < enemies.size(); ++i)
 				enemies[i]->handle_events(event);
 		}
+
+		//- Handle player movements
 		if(event.type == sf::Event::KeyPressed)
 		{
 			if(event.key.code == sf::Keyboard::W || event.key.code == sf::Keyboard::Up){
@@ -84,8 +92,10 @@ void GameState::handle_events(Game* game, sf::Event event)
 					level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
 					view.move(-32, 0);
 				}
-
 			}
+
+			if(level.get_tile(player.get_x(),player.get_y())->is_hazardous())
+				player.hp-=2;
 		}
 	}
 	//- Controls in paused state
@@ -110,6 +120,7 @@ void GameState::update(Game* game, sf::Time deltaTime)
 	if(!is_paused && !has_popup)
 	{
 		player.update(deltaTime);
+		// std::cout << "HP: " << player.get_hp() << "\n";
 
 		if(entities.size() > 0){
 			for(int i = 0; i < entities.size(); ++i)
@@ -123,8 +134,9 @@ void GameState::update(Game* game, sf::Time deltaTime)
 		//- Check if player is on Item
 		for(int i = 0; i < entities.size(); ++i)
 		{
-			if(player.get_x() == entities[i]->get_x() && player.get_y() == entities[i]->get_y()){
-				
+			if(player.get_x() == entities[i]->get_x() && player.get_y() == entities[i]->get_y())
+			{
+
 			}
 
 		}
@@ -133,7 +145,7 @@ void GameState::update(Game* game, sf::Time deltaTime)
 		{
 			if(enemies.size() > 0){
 				for(int i = 0; i < enemies.size(); ++i){
-					std::cout << "Locate: " << enemies[i]->canLocatePlayer(player) << "\n";
+					// std::cout << "Locate: " << enemies[i]->canLocatePlayer(player) << "\n";
 					enemies[i]->set_chasing(enemies[i]->canLocatePlayer(player));
 					if(!enemies[i]->get_chasing())
 						enemies[i]->move(enemies[i]->generate_move(this->level));

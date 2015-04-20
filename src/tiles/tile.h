@@ -74,6 +74,7 @@ public:
 	bool may_pass() { return this->walkable; }
 	bool get_occupied() { return this->occupied; }
 	void set_occupied(bool occ) { this->occupied = occ; }
+    bool is_hazardous() { return this->hazardous; }
 	sf::Texture* get_texture(){ return &txr; }
 	sf::Sprite* get_sprite(){ return &spr; }
 };

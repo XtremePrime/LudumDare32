@@ -26,6 +26,11 @@ void Player::init(sf::Vector2f c, Level level, int charclass)
 	spr.setPosition(coord.x*TILESCALE, coord.y*TILESCALE);
 
 	dir = Direction::RIGHT;
+
+	this->hp = 10;
+	this->max_hp = 10;
+	this->lvl = 1;
+	this->dmg = 1;
 }
 
 bool Player::hasCollision(Tile* tile)
@@ -71,6 +76,9 @@ void Player::handle_events(sf::Event event)
 
 void Player::update(sf::Time deltaTime)
 {
+	if(this->hp <= 0)
+		is_dead = true;
+
 	spr.setPosition(coord.x*TILESCALE, coord.y*TILESCALE);
 }
 

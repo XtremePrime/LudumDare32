@@ -60,15 +60,13 @@
 		<Unit filename="src/level.cpp" />
 		<Unit filename="src/level.h" />
 		<Unit filename="src/main.cpp" />
-		<Unit filename="src/states/changestate.cpp" />
-		<Unit filename="src/states/changestate.h" />
+		<Unit filename="src/states/gameoverstate.cpp" />
+		<Unit filename="src/states/gameoverstate.h" />
 		<Unit filename="src/states/gamestate.cpp" />
 		<Unit filename="src/states/gamestate.h" />
 		<Unit filename="src/states/introstate.cpp" />
 		<Unit filename="src/states/introstate.h" />
 		<Unit filename="src/states/state.h" />
-		<Unit filename="src/texturemanager.cpp" />
-		<Unit filename="src/texturemanager.h" />
 		<Unit filename="src/tiles/tile.cpp" />
 		<Unit filename="src/tiles/tile.h" />
 		<Extensions>

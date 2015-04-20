@@ -11,6 +11,7 @@ class Player : public Entity
 private:
     int score;
     int xp;
+    bool is_dead = false;
 public:
     void init(sf::Vector2f, Level, int);
 
@@ -25,6 +26,7 @@ public:
     int get_hp() { return this->hp; }
     int get_xp() { return this->xp; }
     int get_lvl() { return this->lvl; }
+    bool get_death() { return this->is_dead; }
 };
 
 

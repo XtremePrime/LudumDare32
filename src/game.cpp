@@ -2,6 +2,7 @@
 #include "states/state.h"
 #include "states/gamestate.h"
 #include "states/introstate.h"
+#include "states/gameoverstate.h"
 
 void Game::init()
 {
@@ -90,7 +91,7 @@ void Game::pop_state()
 void Game::run()
 {
 	init();
-	change_state(IntroState::instance());
+	change_state(GameOverState::instance());
 	while(is_running)
 	{
 		sf::Event event;
