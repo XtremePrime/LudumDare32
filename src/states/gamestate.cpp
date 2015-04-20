@@ -20,7 +20,9 @@ void GameState::init()
 	view.setSize(sf::Vector2f(256-64, 256-64));
 
 	player.init(sf::Vector2f(2,3), level, rand()%3);
+	hud.init(&player);
 
+	//- Level 1 pushback
 	enemies.push_back(new Mob(sf::Vector2f(10, 10), level, 0));
 	enemies.push_back(new Mob(sf::Vector2f(10, 11), level, 0));
 	enemies.push_back(new Mob(sf::Vector2f(11, 11), level, 0));
@@ -152,6 +154,7 @@ void GameState::update(Game* game, sf::Time deltaTime)
 			mob_timer.restart();
 		}
 
+		hud.update(deltaTime);
 		game->get_window()->setView(view);
 	}
 }
@@ -170,6 +173,7 @@ void GameState::render(Game* game)
 				enemies[i]->render(game->get_window());
 		}
 		player.render(game->get_window());
+		hud.render(game->get_window());
 	}
 }
 
