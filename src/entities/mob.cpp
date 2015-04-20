@@ -2,22 +2,23 @@
 
 #define TILESCALE 32
 
-Mob::Mob(sf::Vector2f c, Level level)
+Mob::Mob(sf::Vector2f c, Level level, int type)
 {
-	this->txr.loadFromFile("res/entities/rat_liviu.png"); // also for testing pourpose
-	this->spr.setTexture(txr);
-
-	this->coord.x = c.x;
-	this->coord.y = c.y;
-
-	spr.setPosition(coord.x*TILESCALE, coord.y*TILESCALE);
-
-	dir = Direction::RIGHT;
+	init(c, level, type);
 }
 
-void Mob::init(sf::Vector2f c, Level level)
+void Mob::init(sf::Vector2f c, Level level, int type)
 {
-    this->txr.loadFromFile("res/entities/rat_liviu.png"); // yeah ... this one too
+	std::string enemymodel;
+	switch(type){
+		case 0: //- Jimmy
+			enemymodel = "res/entities/Jimi.png";
+		break;
+		case 1: //- Liviu's Rat
+			enemymodel = "res/entities/rat_liviu.png";
+		break;
+	}
+    this->txr.loadFromFile(enemymodel);
 	this->spr.setTexture(txr);
 
 	this->coord.x = c.x;
@@ -54,6 +55,11 @@ bool Mob::canLocatePlayer(Player p)
 		(p.get_y()-coord.y >= -1 && p.get_y()-coord.y <= 1))
 		return true;
 	return false;
+}
+
+bool Mob::hitsPlayer(Tile* tile, Player p)
+{
+
 }
 
 void Mob::move(sf::Vector2f c)

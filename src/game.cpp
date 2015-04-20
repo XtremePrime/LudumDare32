@@ -5,7 +5,7 @@
 
 void Game::init()
 {
-	this->window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "Untitled Game", sf::Style::Titlebar | sf::Style::Close);
+	this->window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "Weapon Quest: Where's my weapon?", sf::Style::Titlebar | sf::Style::Close);
 	this->window.setVerticalSyncEnabled(true);
 	this->window.setKeyRepeatEnabled(false);
 
