@@ -60,6 +60,7 @@ void Player::move(sf::Vector2f c)
 		spr.setTextureRect(sf::IntRect(32, 0, -32, 32));
 	else if(dir == Direction::RIGHT)
 		spr.setTextureRect(sf::IntRect(0, 0, 32, 32));
+
 }
 
 void Player::handle_events(sf::Event event)
