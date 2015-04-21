@@ -31,7 +31,7 @@ void GameState::init()
 	view.setSize(sf::Vector2f(256-64, 256-64));
 
 	player.init(sf::Vector2f(2,3), level, rand()%3);
-	hud.init(&player, &enemycount);
+	
 
 	//- Level 1 pushback
 	enemies.push_back(new Mob(sf::Vector2f(4, 2), level, 0));
@@ -47,18 +47,14 @@ void GameState::init()
 	enemies.push_back(new Mob(sf::Vector2f(23, 29), level, 0));
 	enemies.push_back(new Mob(sf::Vector2f(25, 23), level, 0));
 
-	std::cout << enemies.size() << "\n";
-	// system("PAUSE");
+	hud.init(&player, enemies.size());
 
 	level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
 }
 
 bool GameState::check_for_attack(Player p, Mob* m, int x, int y)
 {
-	// std::cout << "COMPARING: " << p.get_x()+x << "==" << m->get_x() << "/" << p.get_y()+y << "==" <<  m->get_y() << "\n";
-	// std::cout << p.get_x()+x << "/" << p.get_y()+y << " | " << m->get_x() << "/" <<  m->get_y() << "\n";
 	if(p.get_x()+x == m->get_x() && p.get_y()+y+1 == m->get_y()){
-		// std::cout << "TRUEEE! " << m->get_hp() << "\n";
 		return true;
 	}
 
@@ -176,7 +172,7 @@ void GameState::handle_events(Game* game, sf::Event event)
 
 
 			if(level.get_tile(player.get_x(),player.get_y())->is_hazardous())
-				player.hp-=2;
+				player.hp-=15;
 		}
 	}
 	//- Controls in paused state
@@ -201,17 +197,6 @@ void GameState::change_level()
 
 	player.set_coord(sf::Vector2f(2,3));
 
-	//- Level 2 pushback
-	// enemies.push_back(new Mob(sf::Vector2f(25, 26), , 0));
-	// enemies.push_back(new Mob(sf::Vector2f(4, 19), , 0));
-	// enemies.push_back(new Mob(sf::Vector2f(20, 27), , 0));
-	// enemies.push_back(new Mob(sf::Vector2f(21, 13), , 0));
-	// enemies.push_back(new Mob(sf::Vector2f(15, 13), , 0));
-	// enemies.push_back(new Mob(sf::Vector2f(8, 20), , 0));
-	// enemies.push_back(new Mob(sf::Vector2f(2, 12), , 0));
-	// enemies.push_back(new Mob(sf::Vector2f(29, 23), , 0));
-	// enemies.push_back(new Mob(sf::Vector2f(25, 23), , 0));
-
 	level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
 }
 
@@ -232,26 +217,6 @@ void GameState::update(Game* game, sf::Time deltaTime)
 
 			game->change_state(IntroState::instance());
 			return;
-		}
-		if(player.get_action())
-		{
-			//- Hardcoded door. Fuck u
-			// if(player.get_x() == 16 && player.get_y() == 1){
-			// 	level.get_tile(player.get_x(), player.get_y())->set_occupied(false);
-			// 	player.move(sf::Vector2f(9, 0));
-			// 	level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
-			// 	view.move(32*9, 0);
-			// }
-
-			// if(player.get_x() == 25 && player.get_y() == 1){
-			// 	level.get_tile(player.get_x(), player.get_y())->set_occupied(false);
-			// 	player.move(sf::Vector2f(9, 0));
-			// 	level.get_tile(player.get_x(), player.get_y())->set_occupied(true);
-			// 	view.move(-32*9, 0);
-			// }
-
-			// if(player.get_x() == 2 && player.get_y() == 29 && enemies.size() == 0)
-			// 	change_level();
 		}
 
 		if(entities.size() > 0){
@@ -277,18 +242,6 @@ void GameState::update(Game* game, sf::Time deltaTime)
 			game->get_window()->setView(view);
 
 			game->change_state(GameOverState::instance());
-		}
-
-		//- Check if player is on Item
-		for(int i = 0; i < entities.size(); ++i)
-		{
-			if(player.get_x() == entities[i]->get_x() && player.get_y() == entities[i]->get_y())
-			{
-				// std::stringstream ss;
-				// ss << "Press E to pick up " << entities[i]->get_name();
-				// notification.setString();
-			}
-
 		}
 
 		if(mob_timer.getElapsedTime().asMilliseconds() >= 750)
@@ -333,7 +286,7 @@ void GameState::update(Game* game, sf::Time deltaTime)
 			mob_timer.restart();
 		}
 
-		hud.update(deltaTime);
+		hud.update(deltaTime, enemies.size());
 		game->get_window()->setView(view);
 	}
 }
@@ -342,10 +295,7 @@ void GameState::render(Game* game)
 {
 	if(!is_paused)
 	{
-		// if(stage == 1)
-			level.render(game->get_window());
-		// else
-		// 	level2.render(game->get_window());
+		level.render(game->get_window());
 
 		if(entities.size() > 0){
 			for(int i = 0; i < entities.size(); ++i)

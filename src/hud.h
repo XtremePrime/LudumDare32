@@ -14,17 +14,16 @@ private:
 	sf::Text health;
 	Player* player;
 	sf::Font font;
-	// sf::Text time;
-	sf::Text kills;
-	int* count;
+	sf::Text left;
+	int count;
 
 	#define TILESCALE 32
 	int get_rect_x() { return (player->get_x()-2)*TILESCALE; }
 	int get_rect_y() { return (player->get_y()-3)*TILESCALE; }
 	#undef TILESCALE
 public:
-	void init(Player*, int*);
-	void update(sf::Time);
+	void init(Player*, int);
+	void update(sf::Time, int);
 	void render(sf::RenderWindow*);
 };
 
