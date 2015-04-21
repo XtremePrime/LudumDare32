@@ -27,6 +27,7 @@ public:
 
 	float get_x() { return coord.x; }
     float get_y() { return coord.y; }
+    void set_hp(int hp) { this->hp = hp; }
 };
 
 #endif // ENTITY_H

@@ -23,7 +23,7 @@ void Level::load_from_file(std::string filename)
 		this->map.push_back(row);
 	}
 	file.close();
-	// print_map(this->map);
+	print_map(this->map);
 	convert(this->map);
 }
 

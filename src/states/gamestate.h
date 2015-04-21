@@ -17,7 +17,9 @@ private:
 	bool is_paused = false;
 	bool has_popup = false;
 	bool key_pressed = false;
+	int enemycount = 11;
 	Level level;
+	Level level2;
 	sf::View view;
 	Player player;
 	Hud hud;
@@ -29,12 +31,16 @@ private:
 
 	//- Music & sound
 	sf::Music music;
+	sf::SoundBuffer pdamage_buf; sf::Sound pdamage_snd;
+	sf::SoundBuffer edamage_buf; sf::Sound edamage_snd;
 
 	//- Notification
 	sf::Font font;
 	sf::Text notification;
 
 	void change_level();
+	bool check_for_attack(Player, Mob*, int, int);
+	bool check_for_attack(Mob*, Player, int, int);
 protected:
 	static GameState* _instance;
 	GameState(){}

@@ -4,33 +4,36 @@
 #define GAME_HEIGHT 640
 #define TILESCALE 32
 
-void Hud::init(Player* player)
+void Hud::init(Player* player, int* c)
 {
 	this->player = player;
+	this->count = c;
 
+	rect.setPosition((player->get_x()-2)*TILESCALE,(player->get_y()-3)*TILESCALE);
 	rect.setSize(sf::Vector2f(6*TILESCALE, TILESCALE));
 	rect.setFillColor(sf::Color(000, 000, 000, 155));
 
-	font.loadFromFile("res/PressStart2P.ttf");
+	font.loadFromFile("res/font/PressStart2P.ttf");
 
-	//- Hardcoded hearts. I have disappointed you, master
-	// hearts.push_back(new Heart());
-
-	// for(int i = 0; i < hearts.size(); ++i)
-	// 	hearts[i]->setTexture(heart_txr);
+	health.setCharacterSize(10);
+	health.setFont(font);
+	health.setPosition(30, 40);
+	health.setColor(sf::Color::White);
 }
 
 void Hud::render(sf::RenderWindow* window)
 {
-	// for(this->player.get_hp();)
-		window->draw(rect);
+	window->draw(rect);
+	window->draw(health);
 }
 
 void Hud::update(sf::Time deltaTime)
 {
-	rect.setPosition((player->get_x()-2)*TILESCALE,(player->get_y()-3)*TILESCALE);
-	for(int i = 0; i < hearts.size(); ++i)
-	{
+	std::stringstream ss;
+	ss.str(std::string());
+	ss << "Health: " << player->get_hp() << "%";
+	health.setString(ss.str());
 
-	}
+	health.setPosition((player->get_x()-2)*TILESCALE,(player->get_y()-3)*TILESCALE);
+	rect.setPosition((player->get_x()-2)*TILESCALE,(player->get_y()-3)*TILESCALE);
 }

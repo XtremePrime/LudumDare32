@@ -27,6 +27,11 @@ void Mob::init(sf::Vector2f c, Level level, int type)
 	spr.setPosition(coord.x*TILESCALE, coord.y*TILESCALE);
 
 	dir = Direction::RIGHT;
+
+	this->hp = 10;
+	this->max_hp = 10;
+	this->lvl = 1;
+	this->dmg = 3;
 }
 
 bool Mob::hasCollision(Tile* tile)
@@ -42,15 +47,15 @@ sf::Vector2f Mob::generate_move(Level level)
 	do{
 		c.x = rand()%3-1;
 		c.y = rand()%3-1;
-		std::cout << "Attempted: " << c.x << "/" << c.y << "| hasCol: " << hasCollision(level.get_tile((int)(get_x()+c.x), (int)(get_y()+c.y))) << "\n";
+		// std::cout << "Attempted: " << c.x << "/" << c.y << "| hasCol: " << hasCollision(level.get_tile((int)(get_x()+c.x), (int)(get_y()+c.y))) << "\n";
 	}while(hasCollision(level.get_tile((int)(get_x()+c.x), (int)(get_y()+c.y))));
-	std::cout << "Generated: " << c.x << "/" << c.y << "\n";
+	// std::cout << "Generated: " << c.x << "/" << c.y << "\n";
 	return c;
 }
 
 bool Mob::canLocatePlayer(Player p)
 {
-	std::cout << "p.get_x()-coord.x: " << p.get_x()-coord.x << "\n";
+	// std::cout << "p.get_x()-coord.x: " << p.get_x()-coord.x << "\n";
 	if( (p.get_x()-coord.x >= -1 && p.get_x()-coord.x <= 1) ||
 		(p.get_y()-coord.y >= -1 && p.get_y()-coord.y <= 1))
 		return true;
@@ -91,11 +96,17 @@ void Mob::handle_events(sf::Event event)
 
 void Mob::update(sf::Time deltaTime)
 {
-	spr.setPosition(coord.x*TILESCALE, coord.y*TILESCALE);
+	if(this->hp <= 0){
+		is_dead = true;
+	}
+
+	if(!is_dead)
+		spr.setPosition(coord.x*TILESCALE, coord.y*TILESCALE);
 }
 
 void Mob::render(sf::RenderWindow *window)
 {
-    window->draw(spr);
+	if(!is_dead)
+    	window->draw(spr);
 }
 

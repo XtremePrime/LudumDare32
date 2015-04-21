@@ -27,10 +27,11 @@ void Player::init(sf::Vector2f c, Level level, int charclass)
 
 	dir = Direction::RIGHT;
 
-	this->hp = 10;
-	this->max_hp = 10;
+	this->hp = 100;
+	this->max_hp = 100;
 	this->lvl = 1;
 	this->dmg = 1;
+	this->is_dead = false;
 }
 
 bool Player::hasCollision(Tile* tile)
@@ -69,7 +70,8 @@ void Player::handle_events(sf::Event event)
 	if(event.type == sf::Event::KeyPressed)
 	{
 		if(event.key.code == sf::Keyboard::E || event.key.code == sf::Keyboard::Return){
-			std::cout << "Action!\n";
+			if(coord.x == 2 && coord.y == 29 || coord.x == 16 && coord.y == 1 || coord.x == 25 && coord.y == 1)
+				action = true;
 		}
 	}
 }
@@ -85,4 +87,12 @@ void Player::update(sf::Time deltaTime)
 void Player::render(sf::RenderWindow* window)
 {
 	window->draw(spr);
+}
+
+void Player::set_coord(sf::Vector2f c)
+{
+	this->coord.x = c.x;
+	this->coord.y = c.y;
+
+	spr.setPosition(coord.x*TILESCALE, coord.y*TILESCALE);
 }

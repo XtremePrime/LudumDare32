@@ -91,7 +91,7 @@ void Game::pop_state()
 void Game::run()
 {
 	init();
-	change_state(IntroState::instance());
+	change_state(GameState::instance());
 	while(is_running)
 	{
 		sf::Event event;

@@ -1,5 +1,7 @@
 #include "gameoverstate.h"
 
+#include <iostream>
+
 GameOverState* GameOverState::_instance;
 
 GameOverState* GameOverState::instance(){
@@ -10,6 +12,7 @@ GameOverState* GameOverState::instance(){
 
 void GameOverState::init()
 {
+	std::cout << "REACHED!\n";
 	screen_txr.loadFromFile("res/Screens/Win.png");
 	screen.setTexture(screen_txr);
 
@@ -44,6 +47,7 @@ void GameOverState::update(Game* game, sf::Time deltaTime)
 
 void GameOverState::render(Game* game)
 {
+	// std::cout << "Render!!!\n";
 	game->get_window()->draw(screen);
 }
 
